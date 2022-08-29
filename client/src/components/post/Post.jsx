@@ -7,8 +7,10 @@ import CommentIcon from "@mui/icons-material/Comment";
 import { Users } from "../dummyData";
 
 export default function Post(props) {
-  const [like, setLike] = useState(props.props.like);
+  const [like, setLike] = useState(props.like);
   const [isLiked, setIsLiked] = useState(false);
+  const pf = process.env.REACT_APP_PUBLIC_FOLDER;
+  console.log(pf);
 
   const handleLike = () => {
     console.log("hey");
@@ -22,24 +24,21 @@ export default function Post(props) {
           <div className="posttopleft">
             <img
               className="postprofileimg"
-              src={
-                Users.filter((u) => u.id === props.props.userId)[0]
-                  .profilePicture
-              }
+              src={Users.filter((u) => u.id === props.userId)[0].profilePicture}
               alt="deepak"
             />
             <span className="postusername">
-              {Users.filter((u) => u.id === props.props.userId)[0].username}
+              {Users.filter((u) => u.id === props.userId)[0].username}
             </span>
-            <span className="postdate">{props.props.date}</span>
+            <span className="postdate">{props.date}</span>
           </div>
           <div className="posttopright">
             <MoreVertIcon />
           </div>
         </div>
         <div className="postcenter">
-          <span className="posttext">{props.props.desc}</span>
-          <img className="postimg" src={props.props.photo} alt="" />
+          <span className="posttext">{props.desc}</span>
+          <img className="postimg" src={pf + props.photo} alt="" />
         </div>
         <div className="postbottom">
           <div className="postbottomleft">
@@ -49,7 +48,7 @@ export default function Post(props) {
           </div>
           <div className="postbottomright">
             <CommentIcon />
-            <span className="commentcount">{props.props.comment}</span>
+            <span className="commentcount">{props.comment}</span>
           </div>
         </div>
       </div>

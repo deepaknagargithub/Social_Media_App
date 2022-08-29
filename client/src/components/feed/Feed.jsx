@@ -11,7 +11,7 @@ export default function feed() {
         <Share />
 
         {Posts.map((post) => (
-          <Post key={post.id} props={post} />
+          <Post key={post.id} {...post} />
         ))}
       </div>
     </div>
