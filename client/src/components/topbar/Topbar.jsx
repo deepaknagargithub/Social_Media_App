@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { AuthContex } from "../../context/AuthContext";
 
 export default function Topbar() {
+  const pf = process.env.REACT_APP_PUBLIC_FOLDER;
   const { user } = useContext(AuthContex);
   console.log(user.profilePicture);
   return (
@@ -42,7 +43,10 @@ export default function Topbar() {
           <span className="topbariconbadge">1</span>
         </div>
         <Link to={`/profile/${user.username}`}>
-          <img src={user.profilePicture} className="topbarimg" />
+          <img
+            src={user.profilePicture || pf + "profile.jpg"}
+            className="topbarimg"
+          />
         </Link>
       </div>
     </div>

@@ -43,7 +43,11 @@ export default function Share() {
     <div className="share">
       <div className="sharewrapper">
         <div className="sharetop">
-          <img className="shareprofileimg" src={user.profilePicture} alt="" />
+          <img
+            className="shareprofileimg"
+            src={user.profilePicture || pf + "profile.jpg"}
+            alt=""
+          />
           <input
             className="shareinput"
             type="text"
